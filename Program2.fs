@@ -23,13 +23,10 @@ let mySeq : seq<string> =
     readLines Seq.empty
 
 
-if Seq.isEmpty mySeq then
-    printfn "Список пуст. Поиск не производится."
-else
-    printfn "Сгенерированная последовательность строк:"
-    mySeq |> Seq.iter (printfn "%s")
 
-    match find mySeq with
+printfn "Сгенерированная последовательность строк:"
+mySeq |> Seq.iter (printfn "%s")
+
+match find mySeq with
     | Some shortestString -> printfn "\nСамая короткая строка: %s" shortestString
     | None -> printfn "\nСписок пуст." 
-
