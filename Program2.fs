@@ -1,4 +1,4 @@
-﻿open System
+open System
 
 let find (stringSeq: seq<string>) : string option =
     let shortest (a:string) (b:string) : string =
@@ -22,11 +22,14 @@ let mySeq : seq<string> =
 
     readLines Seq.empty
 
-printfn "Сгенерированный список строк:"
-mySeq |> Seq.iter (printfn "%s")
 
-match find mySeq with
-| Some shortestString -> printfn "\nСамая короткая строка: %s" shortestString
-| None -> printfn "\nСписок пуст."
+if Seq.isEmpty mySeq then
+    printfn "Список пуст. Поиск не производится."
+else
+    printfn "Сгенерированная последовательность строк:"
+    mySeq |> Seq.iter (printfn "%s")
 
+    match find mySeq with
+    | Some shortestString -> printfn "\nСамая короткая строка: %s" shortestString
+    | None -> printfn "\nСписок пуст." 
 
